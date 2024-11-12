@@ -25,6 +25,7 @@ WHERE status != 'Completed'
 ORDER BY due_date;
 
 
+-- Display the title and due date of assignments for the course with course_id 'COMP1234'
 SELECT title, due_date 
 FROM assignments 
 WHERE course_id = 'COMP1234';
@@ -32,17 +33,28 @@ WHERE course_id = 'COMP1234';
 "HTML/CSS Basics"	"2024-09-20"
 "JavaScript Interactive Page"	"2024-10-10"
  
+
+-- Find the earliest assignment due date from the assignments table
 SELECT MIN(due_date) AS earliest_due_date 
 FROM assignments;
 -- result
 "2024-09-10"
 
+-- Find the latest assignment due date from the assignments table
+SELECT MAX(due_date) AS latest_due_date 
+FROM assignments;
+"2025-03-20"
+
+
+-- Display the title and course_id of assignments due on '2024-10-08'
 SELECT title, course_id 
 FROM assignments 
 WHERE due_date = '2024-10-08';
 -- result
 "Data Normalization Task"	"COMP1238"
 
+
+-- Display the title and due date of assignments due in October 2024
 SELECT title, due_date 
 FROM assignments 
 WHERE due_date LIKE '2024-10%';
@@ -54,18 +66,24 @@ WHERE due_date LIKE '2024-10%';
 "Linear Algebra Quiz"	"2024-10-15"
 "Presentation Project"	"2024-10-20"
 
+
+-- Find the most recent due date of assignments with a status of 'Completed'
 SELECT MAX(due_date) AS most_recent_completed 
 FROM assignments 
 WHERE status = 'Completed';
 -- result
 "2025-03-20"
 
+
+-- Query to count the number of assignments with status "Not Started"
 SELECT COUNT(*) AS not_started_count 
 FROM assignments 
 WHERE status = 'Not Started';
 -- result
 "9"
 
+
+-- Query to find course IDs and names of courses with lab sessions on Tuesday
 SELECT course_id, course_name 
 FROM courses 
 WHERE lab_time LIKE 'Tue%';
@@ -79,6 +97,8 @@ WHERE lab_time LIKE 'Tue%';
 "COMP3123"	"Full Stack Development I"
 "COMP3133"	"Full Stack Development II"
 
+
+-- Query to join courses and assignments tables on course_id, displaying course details with assignments
 SELECT courses.course_id, courses.course_name, assignments.title, assignments.due_date 
 FROM courses 
 JOIN assignments ON courses.course_id = assignments.course_id;
@@ -107,12 +127,3 @@ JOIN assignments ON courses.course_id = assignments.course_id;
 "GSSC1027"	"Personal Finance"	"Investment Strategies Essay"	"2025-03-12"
 "MATH1172"	"Mathematics for Computer Technology II"	"Probability Problem Set"	"2025-02-15"
 "MATH1172"	"Mathematics for Computer Technology II"	"Complex Numbers Quiz"	"2025-03-05"
-
-
-
-
-
-
-
-
-
