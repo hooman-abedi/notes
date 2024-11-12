@@ -1,16 +1,22 @@
+-- Selects all columns and rows from the courses table
 SELECT * FROM courses;
 
+-- Selects all columns and the first 10 rows from the assignments table
 SELECT * FROM assignments
 LIMIT 10; 
 
+-- Counts the total number of rows in the courses table
 SELECT count(*) FROM courses;
 
+-- Finds the earliest (minimum) due date in the assignments table
 SELECT min(due_date) FROM assignments;
 
+-- Selects all columns and rows from the courses table where course_name starts with 'Intro'
 SELECT *
 FROM  courses
 WHERE course_name LIKE 'Intro%';
 
+-- Selects all columns and rows from the assignments table where the status is not "Completed," ordered by due date
 SELECT *
 FROM  assignments
 WHERE status != 'Completed'
