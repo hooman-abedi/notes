@@ -74,11 +74,18 @@ WHERE due_date LIKE '2024-10%';
 
 
 -- Find the most recent due date of assignments with a status of 'Completed'
-SELECT MAX(due_date) AS most_recent_completed 
-FROM assignments 
-WHERE status = 'Completed';
+SELECT title, due_date
+FROM assignments
+WHERE due_date BETWEEN '2024-09-01' AND '2024-11-11'
+ AND status = 'Completed'
+ ORDER BY due_date
 -- result
-"2025-03-20"
+"Logic Gates Exercise"	"2024-09-10"
+"Calculus Problem Set"	"2024-09-12"
+"SQL Query Assignment"	"2024-09-18"
+-- the last one is the most recent assignment that is completed.
+
+
 
 
 -- Query to count the number of assignments with status "Not Started"
